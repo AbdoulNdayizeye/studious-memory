@@ -4,30 +4,35 @@ import { getDict } from "@/lib/translations";
 
 const featuredDishes = [
   {
-    name: "Osso Buco alla Milanese",
-    description: "Slow-braised veal shank in white wine with saffron risotto and gremolata",
-    price: "$42",
-    img: "https://images.unsplash.com/photo-1555396273-122f1f3b47cb?w=600&q=80",
+    name: "Braciole",
+    en: "Certified Angus strip loin, pounded and stuffed with prosciutto, bocconcini & mushroom in a merlot wine reduction",
+    fr: "Contre-filet Angus certifié, attendri et farci de prosciutto, bocconcini et champignons dans une réduction au merlot",
+    price: "$48",
+    img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
     badgeKey: "houseSig" as const,
   },
   {
-    name: "Linguine alle Vongole",
-    description: "Fresh clams, white wine, garlic, chilli, and fresh parsley over artisan pasta",
+    name: "Lobster Ravioli",
+    en: "In a brandy & plum tomato cream sauce with piccoli gamberetti and shaved grana padano",
+    fr: "Dans une sauce crémeuse au brandy et tomates prunes avec piccoli gamberetti et grana padano râpé",
     price: "$28",
     img: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=80",
   },
   {
-    name: "Vitello al Limone",
-    description: "Tender veal escalope in a delicate lemon butter sauce with capers and sage",
-    price: "$38",
-    img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+    name: "Veal Mignonette",
+    en: "Veal stuffed with prosciutto cotto and provolone, peppercorn mushroom veal jus",
+    fr: "Veau farci de prosciutto cotto et provolone, jus de veau aux champignons et grains de poivre",
+    price: "$39",
+    img: "https://images.unsplash.com/photo-1555396273-122f1f3b47cb?w=600&q=80",
+    badgeKey: "houseSig" as const,
   },
   {
-    name: "Tiramisù della Casa",
-    description: "Our legendary house tiramisù — a recipe unchanged since 1976",
-    price: "$12",
-    img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80",
-    badgeKey: "since" as const,
+    name: "Fettuccine Gamberi",
+    en: "Sea scallop, tiger shrimp and sundried tomato pesto — a house special",
+    fr: "Pétoncle, crevettes tigrées et pesto de tomates séchées — une spécialité maison",
+    price: "$28",
+    img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80",
+    badgeKey: "houseSig" as const,
   },
 ];
 
@@ -218,7 +223,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   <h3 className="text-[#1C1409] font-semibold leading-snug" style={{ fontFamily: "var(--font-playfair), serif" }}>
                     {dish.name}
                   </h3>
-                  <p className="text-[#6B5341] text-sm leading-relaxed flex-1">{dish.description}</p>
+                  <p className="text-[#6B5341] text-sm leading-relaxed flex-1">{lang === "fr" ? dish.fr : dish.en}</p>
                   <div className="text-[#C9A84C] font-semibold text-lg border-t border-[rgba(201,168,76,0.2)] pt-3">{dish.price}</div>
                 </div>
               </div>
