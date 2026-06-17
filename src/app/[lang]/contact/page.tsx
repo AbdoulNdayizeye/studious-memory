@@ -29,7 +29,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
       <section
         className="pt-36 pb-16 px-5 md:px-8 text-center"
         style={{
-          background: "radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%), linear-gradient(180deg, #F2E8D9 0%, #FAF6EF 100%)",
+          background: "radial-gradient(ellipse at 50% 0%, rgba(139,26,26,0.07) 0%, transparent 65%), linear-gradient(180deg, #F2E8D9 0%, #FAF6EF 100%)",
         }}
       >
         <p className="section-label mb-3">{d.contact.heroLabel}</p>
@@ -63,7 +63,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
             <div className="space-y-7">
               {/* Address */}
               <div className="flex gap-4">
-                <div className="w-10 h-10 border border-[rgba(201,168,76,0.3)] flex items-center justify-center flex-shrink-0 text-[#C9A84C]">
+                <div className="w-10 h-10 border border-[rgba(139,26,26,0.3)] flex items-center justify-center flex-shrink-0 text-[#8B1A1A]">
                   📍
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
                     href="https://maps.google.com/?q=Cabotto%27s+Restaurant+Ottawa+ON"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#C9A84C] text-xs mt-2 inline-block hover:text-[#8B6914] transition-colors underline underline-offset-2"
+                    className="text-[#8B1A1A] text-xs mt-2 inline-block hover:text-[#6B1212] transition-colors underline underline-offset-2"
                   >
                     {d.contact.mapsLink}
                   </a>
@@ -84,14 +84,14 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
 
               {/* Phone */}
               <div className="flex gap-4">
-                <div className="w-10 h-10 border border-[rgba(201,168,76,0.3)] flex items-center justify-center flex-shrink-0 text-[#C9A84C]">
+                <div className="w-10 h-10 border border-[rgba(139,26,26,0.3)] flex items-center justify-center flex-shrink-0 text-[#8B1A1A]">
                   📞
                 </div>
                 <div>
                   <p className="text-[#1C1409] text-xs tracking-widest uppercase mb-1">{d.contact.phoneLabel}</p>
                   <a
                     href="tel:+16137267300"
-                    className="text-[#6B5341] text-sm hover:text-[#C9A84C] transition-colors"
+                    className="text-[#6B5341] text-sm hover:text-[#8B1A1A] transition-colors"
                   >
                     (613) 726-7300
                   </a>
@@ -101,14 +101,14 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
 
               {/* Email */}
               <div className="flex gap-4">
-                <div className="w-10 h-10 border border-[rgba(201,168,76,0.3)] flex items-center justify-center flex-shrink-0 text-[#C9A84C]">
+                <div className="w-10 h-10 border border-[rgba(139,26,26,0.3)] flex items-center justify-center flex-shrink-0 text-[#8B1A1A]">
                   ✉️
                 </div>
                 <div>
                   <p className="text-[#1C1409] text-xs tracking-widest uppercase mb-1">{d.contact.emailLabel}</p>
                   <a
                     href="mailto:info@cabottos.com"
-                    className="text-[#6B5341] text-sm hover:text-[#C9A84C] transition-colors"
+                    className="text-[#6B5341] text-sm hover:text-[#8B1A1A] transition-colors"
                   >
                     info@cabottos.com
                   </a>
@@ -117,7 +117,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
 
               {/* Hours */}
               <div className="flex gap-4">
-                <div className="w-10 h-10 border border-[rgba(201,168,76,0.3)] flex items-center justify-center flex-shrink-0 text-[#C9A84C]">
+                <div className="w-10 h-10 border border-[rgba(139,26,26,0.3)] flex items-center justify-center flex-shrink-0 text-[#8B1A1A]">
                   🕔
                 </div>
                 <div>
@@ -130,7 +130,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
                       </tr>
                       <tr>
                         <td className="pr-8 py-0.5">{d.contact.hoursTue}</td>
-                        <td className="text-[#C9A84C]">{d.contact.hoursTime}</td>
+                        <td className="text-[#8B1A1A]">{d.contact.hoursTime}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -142,7 +142,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
 
               {/* Parking */}
               <div className="flex gap-4">
-                <div className="w-10 h-10 border border-[rgba(201,168,76,0.3)] flex items-center justify-center flex-shrink-0 text-[#C9A84C]">
+                <div className="w-10 h-10 border border-[rgba(139,26,26,0.3)] flex items-center justify-center flex-shrink-0 text-[#8B1A1A]">
                   🅿️
                 </div>
                 <div>
@@ -153,7 +153,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
             </div>
 
             {/* Map embed */}
-            <div className="mt-10 border border-[rgba(201,168,76,0.15)] overflow-hidden">
+            <div className="mt-10 border border-[rgba(139,26,26,0.15)] overflow-hidden">
               <iframe
                 title="Cabotto's Restaurant Location"
                 width="100%"
@@ -256,7 +256,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
               </form>
             ) : (
               <div
-                className="p-10 text-center border border-[rgba(201,168,76,0.2)]"
+                className="p-10 text-center border border-[rgba(139,26,26,0.2)]"
                 style={{ background: "#F2E8D9" }}
               >
                 <div className="text-4xl mb-4">✉️</div>
@@ -285,8 +285,8 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
       <section
         className="py-20 px-5 md:px-8 text-center mt-8"
         style={{
-          background: "radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%), #F2E8D9",
-          borderTop: "1px solid rgba(201,168,76,0.1)"
+          background: "radial-gradient(ellipse at 50% 50%, rgba(139,26,26,0.06) 0%, transparent 70%), #F2E8D9",
+          borderTop: "1px solid rgba(139,26,26,0.1)"
         }}
       >
         <div className="max-w-2xl mx-auto">

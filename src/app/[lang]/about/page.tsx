@@ -36,7 +36,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         />
         <div className="absolute inset-0" style={{ background: "rgba(26,19,9,0.75)" }} />
         <div className="relative">
-          <p className="section-label mb-3" style={{ color: "#C9A84C" }}>{d.about.heroLabel}</p>
+          <p className="section-label mb-3" style={{ color: "#8B1A1A" }}>{d.about.heroLabel}</p>
           <h1
             className="section-title mb-5"
             style={{ fontFamily: "var(--font-playfair), serif", fontSize: "clamp(2.5rem,6vw,4rem)", color: "#FAF6EF" }}
@@ -71,7 +71,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
 
           {/* Visual panel */}
           <div className="relative">
-            <div className="relative aspect-square max-w-md mx-auto overflow-hidden border border-[rgba(201,168,76,0.2)]">
+            <div className="relative aspect-square max-w-md mx-auto overflow-hidden border border-[rgba(139,26,26,0.2)]">
               <Image
                 src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=900&q=85"
                 alt="Italian kitchen craft"
@@ -85,11 +85,11 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                 <p className="text-[#FAF6EF] text-base italic" style={{ fontFamily: "var(--font-playfair), serif" }}>
                   {d.about.quoteText}
                 </p>
-                <p className="text-[#C9A84C] text-xs tracking-widest mt-2 uppercase">{d.about.quoteSource}</p>
+                <p className="text-[#8B1A1A] text-xs tracking-widest mt-2 uppercase">{d.about.quoteSource}</p>
               </div>
             </div>
-            <div className="absolute -bottom-5 -right-5 w-20 h-20 border-b border-r border-[rgba(201,168,76,0.3)] pointer-events-none" />
-            <div className="absolute -top-5 -left-5 w-20 h-20 border-t border-l border-[rgba(201,168,76,0.3)] pointer-events-none" />
+            <div className="absolute -bottom-5 -right-5 w-20 h-20 border-b border-r border-[rgba(139,26,26,0.3)] pointer-events-none" />
+            <div className="absolute -top-5 -left-5 w-20 h-20 border-t border-l border-[rgba(139,26,26,0.3)] pointer-events-none" />
           </div>
         </div>
       </section>
@@ -99,7 +99,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Visual */}
           <div className="order-2 lg:order-1 relative">
-            <div className="relative aspect-[3/4] max-w-sm mx-auto overflow-hidden border border-[rgba(201,168,76,0.2)]">
+            <div className="relative aspect-[3/4] max-w-sm mx-auto overflow-hidden border border-[rgba(139,26,26,0.2)]">
               <Image
                 src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=800&q=85"
                 alt="Restaurant owner and hospitality"
@@ -113,10 +113,10 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                 <p className="text-[#FAF6EF] text-lg font-semibold" style={{ fontFamily: "var(--font-playfair), serif" }}>
                   {d.about.vincTitle}
                 </p>
-                <p className="text-[#C9A84C] text-xs tracking-widest uppercase mt-1">{d.about.vincRole}</p>
+                <p className="text-[#8B1A1A] text-xs tracking-widest uppercase mt-1">{d.about.vincRole}</p>
               </div>
             </div>
-            <div className="absolute top-8 right-0 translate-x-1/2 w-16 h-16 border border-[rgba(201,168,76,0.2)] rotate-45 pointer-events-none" />
+            <div className="absolute top-8 right-0 translate-x-1/2 w-16 h-16 border border-[rgba(139,26,26,0.2)] rotate-45 pointer-events-none" />
           </div>
 
           {/* Text */}
@@ -159,7 +159,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           <div className="relative">
             <div
               className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px"
-              style={{ background: "linear-gradient(180deg, transparent, rgba(201,168,76,0.4), transparent)" }}
+              style={{ background: "linear-gradient(180deg, transparent, rgba(139,26,26,0.4), transparent)" }}
             />
 
             <div className="space-y-10">
@@ -170,13 +170,13 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                     i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 bg-[#C9A84C] rounded-full border-2 border-[#FAF6EF] mt-1.5 flex-shrink-0 z-10" />
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 bg-[#8B1A1A] rounded-full border-2 border-[#FAF6EF] mt-1.5 flex-shrink-0 z-10" />
                   <div
                     className={`ml-10 md:ml-0 md:w-[45%] ${
                       i % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10 md:ml-[55%] md:text-left"
                     }`}
                   >
-                    <p className="text-[#C9A84C] font-semibold text-sm tracking-wide mb-1">{year}</p>
+                    <p className="text-[#8B1A1A] font-semibold text-sm tracking-wide mb-1">{year}</p>
                     <p className="text-[#6B5341] text-sm leading-relaxed">{event}</p>
                   </div>
                 </div>
@@ -189,7 +189,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       {/* ── THE NAME ──────────────────────────────────────── */}
       <section
         className="py-20 px-5 md:px-8"
-        style={{ background: "#F2E8D9", borderTop: "1px solid rgba(201,168,76,0.12)", borderBottom: "1px solid rgba(201,168,76,0.12)" }}
+        style={{ background: "#F2E8D9", borderTop: "1px solid rgba(139,26,26,0.12)", borderBottom: "1px solid rgba(139,26,26,0.12)" }}
       >
         <div className="max-w-3xl mx-auto text-center">
           <p className="section-label mb-3">{d.about.nameLabel}</p>
@@ -224,7 +224,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
             {values.map(({ icon, title, body }) => (
               <div
                 key={title}
-                className="card-lift p-8 border border-[rgba(201,168,76,0.15)]"
+                className="card-lift p-8 border border-[rgba(139,26,26,0.15)]"
                 style={{ background: "#FFFFFF", boxShadow: "0 2px 20px rgba(26,19,9,0.06)" }}
               >
                 <span className="text-3xl block mb-4">{icon}</span>
@@ -245,8 +245,8 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       <section
         className="py-20 px-5 md:px-8 text-center"
         style={{
-          background: "radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%), #F2E8D9",
-          borderTop: "1px solid rgba(201,168,76,0.1)"
+          background: "radial-gradient(ellipse at 50% 50%, rgba(139,26,26,0.06) 0%, transparent 70%), #F2E8D9",
+          borderTop: "1px solid rgba(139,26,26,0.1)"
         }}
       >
         <div className="max-w-2xl mx-auto">
@@ -257,7 +257,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           >
             {d.about.philQuote}
             <br />
-            <span className="text-[#C9A84C] not-italic">{d.about.philEnd}</span>
+            <span className="text-[#8B1A1A] not-italic">{d.about.philEnd}</span>
           </blockquote>
         </div>
       </section>
@@ -265,7 +265,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       {/* ── CTA ──────────────────────────────────────────── */}
       <section
         className="py-20 px-5 md:px-8 text-center"
-        style={{ background: "#FAF6EF", borderTop: "1px solid rgba(201,168,76,0.1)" }}
+        style={{ background: "#FAF6EF", borderTop: "1px solid rgba(139,26,26,0.1)" }}
       >
         <h2
           className="section-title mb-5 whitespace-pre-line"

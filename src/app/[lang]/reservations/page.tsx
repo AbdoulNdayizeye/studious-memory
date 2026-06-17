@@ -68,7 +68,7 @@ export default function ReservationsPage({ params }: { params: Promise<{ lang: s
       <section
         className="pt-36 pb-16 px-5 md:px-8 text-center"
         style={{
-          background: "radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%), linear-gradient(180deg, #F2E8D9 0%, #FAF6EF 100%)",
+          background: "radial-gradient(ellipse at 50% 0%, rgba(139,26,26,0.07) 0%, transparent 65%), linear-gradient(180deg, #F2E8D9 0%, #FAF6EF 100%)",
         }}
       >
         <p className="section-label mb-3">{d.reservations.heroLabel}</p>
@@ -248,7 +248,7 @@ export default function ReservationsPage({ params }: { params: Promise<{ lang: s
           ) : (
             /* Confirmation */
             <div
-              className="text-center p-12 border border-[rgba(201,168,76,0.25)]"
+              className="text-center p-12 border border-[rgba(139,26,26,0.25)]"
               style={{ background: "#F2E8D9" }}
             >
               <div className="text-5xl mb-6">✅</div>
@@ -261,9 +261,9 @@ export default function ReservationsPage({ params }: { params: Promise<{ lang: s
               <div className="divider-gold-sm mb-6" />
               <p className="text-[#6B5341] leading-relaxed mb-2">
                 {d.reservations.confirmText1} <strong className="text-[#1C1409]">{form.name}</strong>! {d.reservations.confirmText2}{" "}
-                <strong className="text-[#C9A84C]">{form.guests} {Number(form.guests) === 1 ? d.reservations.guest : d.reservations.guests}</strong>{" "}
-                {d.reservations.confirmText3} <strong className="text-[#C9A84C]">{form.date}</strong>{" "}
-                {d.reservations.confirmText4} <strong className="text-[#C9A84C]">{form.time}</strong>{" "}
+                <strong className="text-[#8B1A1A]">{form.guests} {Number(form.guests) === 1 ? d.reservations.guest : d.reservations.guests}</strong>{" "}
+                {d.reservations.confirmText3} <strong className="text-[#8B1A1A]">{form.date}</strong>{" "}
+                {d.reservations.confirmText4} <strong className="text-[#8B1A1A]">{form.time}</strong>{" "}
                 {d.reservations.confirmText5}
               </p>
               <p className="text-[#9E8068] text-sm mb-8">
@@ -278,7 +278,7 @@ export default function ReservationsPage({ params }: { params: Promise<{ lang: s
       </section>
 
       {/* ── INFO CARDS ───────────────────────────────────── */}
-      <section className="py-16 px-5 md:px-8" style={{ background: "#F2E8D9", borderTop: "1px solid rgba(201,168,76,0.1)" }}>
+      <section className="py-16 px-5 md:px-8" style={{ background: "#F2E8D9", borderTop: "1px solid rgba(139,26,26,0.1)" }}>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
             { icon: "📞", title: d.reservations.info1Title, body: d.reservations.info1Body },
@@ -287,7 +287,7 @@ export default function ReservationsPage({ params }: { params: Promise<{ lang: s
           ].map(({ icon, title, body }) => (
             <div
               key={title}
-              className="p-6 border border-[rgba(201,168,76,0.15)] text-center"
+              className="p-6 border border-[rgba(139,26,26,0.15)] text-center"
               style={{ background: "#FFFFFF", boxShadow: "0 2px 20px rgba(26,19,9,0.06)" }}
             >
               <span className="text-3xl block mb-3">{icon}</span>

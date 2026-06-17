@@ -9,9 +9,9 @@
   --color-text:        #1C1409;
   --color-text-muted:  #6B5341;
   --color-text-light:  #9E8068;
-  --color-gold:        #C9A84C;
-  --color-gold-light:  #E8C96E;
-  --color-gold-dark:   #8B6914;
+  --color-gold:        #8B1A1A;
+  --color-gold-light:  #A52828;
+  --color-gold-dark:   #6B1212;
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans:  "Inter", "Helvetica Neue", Arial, sans-serif;
 }
@@ -48,7 +48,7 @@ body {
 .animate-delay-800    { animation-delay: 0.8s; }
 
 .text-shimmer {
-  background: linear-gradient(90deg, #C9A84C 0%, #E8C96E 40%, #C9A84C 80%);
+  background: linear-gradient(90deg, #8B1A1A 0%, #A52828 40%, #8B1A1A 80%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -59,13 +59,13 @@ body {
 /* ── Decorative ──────────────────────────────────── */
 .divider-gold {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #C9A84C 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #8B1A1A 50%, transparent 100%);
 }
 
 .divider-gold-sm {
   width: 60px;
   height: 2px;
-  background: #C9A84C;
+  background: #8B1A1A;
   margin: 0 auto;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(139, 105, 20, 0.12);
+  box-shadow: 0 20px 60px rgba(139, 26, 26, 0.12);
 }
 
 /* ── Button base ─────────────────────────────────── */
@@ -84,18 +84,18 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 2rem;
-  background: #C9A84C;
-  color: #1C1409;
+  background: #8B1A1A;
+  color: #FAF6EF;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: 1px solid #C9A84C;
+  border: 1px solid #8B1A1A;
   transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 .btn-gold:hover {
-  background: #E8C96E;
-  border-color: #E8C96E;
+  background: #A52828;
+  border-color: #A52828;
   transform: translateY(-1px);
 }
 
@@ -105,16 +105,16 @@ body {
   gap: 0.5rem;
   padding: 0.85rem 2rem;
   background: transparent;
-  color: #8B6914;
+  color: #6B1212;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: 1px solid #8B6914;
+  border: 1px solid #6B1212;
   transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 .btn-outline:hover {
-  background: rgba(201, 168, 76, 0.1);
+  background: rgba(139, 26, 26, 0.1);
   transform: translateY(-1px);
 }
 
@@ -123,7 +123,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: #8B1A1A;
   font-family: "Inter", sans-serif;
 }
 
@@ -145,12 +145,12 @@ body {
 
 /* ── Menu item ────────────────────────────────────── */
 .menu-item {
-  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  border-bottom: 1px solid rgba(139, 26, 26, 0.2);
   padding: 1.25rem 0;
   transition: background 0.2s;
 }
 .menu-item:hover {
-  background: rgba(201, 168, 76, 0.05);
+  background: rgba(139, 26, 26, 0.05);
 }
 .menu-item:last-child { border-bottom: none; }
 
@@ -171,11 +171,11 @@ body {
   left: 0;
   width: 0;
   height: 1px;
-  background: #8B6914;
+  background: #6B1212;
   transition: width 0.3s ease;
 }
 .nav-link:hover,
-.nav-link.active { color: #8B6914; }
+.nav-link.active { color: #6B1212; }
 .nav-link:hover::after,
 .nav-link.active::after { width: 100%; }
 
@@ -184,14 +184,14 @@ body {
   width: 100%;
   padding: 0.875rem 1rem;
   background: #FFFFFF;
-  border: 1px solid rgba(139, 105, 20, 0.3);
+  border: 1px solid rgba(139, 26, 26, 0.3);
   color: #1C1409;
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s ease;
 }
 .form-input::placeholder { color: #9E8068; }
-.form-input:focus { border-color: #C9A84C; }
+.form-input:focus { border-color: #8B1A1A; }
 
 .form-label {
   display: block;
@@ -203,10 +203,10 @@ body {
 }
 
 /* ── Star rating ──────────────────────────────────── */
-.stars { color: #C9A84C; letter-spacing: 2px; }
+.stars { color: #8B1A1A; letter-spacing: 2px; }
 
 /* ── Scrollbar ────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #FAF6EF; }
 ::-webkit-scrollbar-thumb { background: #E8D9C0; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
+::-webkit-scrollbar-thumb:hover { background: #8B1A1A; }

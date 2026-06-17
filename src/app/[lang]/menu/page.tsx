@@ -128,7 +128,7 @@ export default function MenuPage({ params }: { params: Promise<{ lang: string }>
       <section
         className="pt-32 pb-16 px-5 md:px-8 text-center"
         style={{
-          background: "radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%), linear-gradient(180deg, #F2E8D9 0%, #FAF6EF 100%)",
+          background: "radial-gradient(ellipse at 50% 0%, rgba(139,26,26,0.07) 0%, transparent 70%), linear-gradient(180deg, #F2E8D9 0%, #FAF6EF 100%)",
         }}
       >
         <p className="section-label mb-3">{d.menu.heroLabel}</p>
@@ -145,7 +145,7 @@ export default function MenuPage({ params }: { params: Promise<{ lang: string }>
       </section>
 
       {/* ── TABS ────────────────────────────────────────── */}
-      <section className="sticky top-[60px] z-30 border-b border-[rgba(201,168,76,0.15)] backdrop-blur-sm" style={{ background: "rgba(250,246,239,0.97)" }}>
+      <section className="sticky top-[60px] z-30 border-b border-[rgba(139,26,26,0.15)] backdrop-blur-sm" style={{ background: "rgba(250,246,239,0.97)" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-8 overflow-x-auto">
           <div className="flex gap-0 min-w-max">
             {menuData.map((cat) => (
@@ -154,8 +154,8 @@ export default function MenuPage({ params }: { params: Promise<{ lang: string }>
                 onClick={() => setActive(cat.id)}
                 className={`flex items-center gap-2 px-5 py-4 text-xs tracking-[0.15em] uppercase transition-all duration-200 border-b-2 whitespace-nowrap ${
                   active === cat.id
-                    ? "text-[#8B6914] border-[#C9A84C]"
-                    : "text-[#9E8068] border-transparent hover:text-[#6B5341] hover:border-[rgba(201,168,76,0.3)]"
+                    ? "text-[#6B1212] border-[#8B1A1A]"
+                    : "text-[#9E8068] border-transparent hover:text-[#6B5341] hover:border-[rgba(139,26,26,0.3)]"
                 }`}
               >
                 <span>{cat.icon}</span>
@@ -192,7 +192,7 @@ export default function MenuPage({ params }: { params: Promise<{ lang: string }>
                         {item.name}
                       </h3>
                       {item.note && (
-                        <span className="text-[10px] tracking-wider uppercase text-[#1C1409] bg-[#C9A84C] px-2 py-0.5 font-semibold">
+                        <span className="text-[10px] tracking-wider uppercase text-white bg-[#8B1A1A] px-2 py-0.5 font-semibold">
                           {d.menu[item.note as NoteKey]}
                         </span>
                       )}
@@ -201,7 +201,7 @@ export default function MenuPage({ params }: { params: Promise<{ lang: string }>
                       {isFr ? item.fr : item.en}
                     </p>
                   </div>
-                  <span className="text-[#C9A84C] font-semibold text-base flex-shrink-0">
+                  <span className="text-[#8B1A1A] font-semibold text-base flex-shrink-0">
                     {item.price === "Market" ? (isFr ? "Prix du marché" : "Market") : item.price}
                   </span>
                 </div>
@@ -213,7 +213,7 @@ export default function MenuPage({ params }: { params: Promise<{ lang: string }>
 
       {/* ── ALLERGEN NOTE ───────────────────────────────── */}
       <section className="pb-20 px-5 md:px-8" style={{ background: "#FAF6EF" }}>
-        <div className="max-w-4xl mx-auto border border-[rgba(201,168,76,0.2)] p-6" style={{ background: "#F2E8D9" }}>
+        <div className="max-w-4xl mx-auto border border-[rgba(139,26,26,0.2)] p-6" style={{ background: "#F2E8D9" }}>
           <p className="text-[#6B5341] text-sm leading-relaxed">
             <strong className="text-[#1C1409]">{d.menu.allergenTitle}:</strong>{" "}
             {d.menu.allergenText}
@@ -224,7 +224,7 @@ export default function MenuPage({ params }: { params: Promise<{ lang: string }>
       {/* ── CTA ─────────────────────────────────────────── */}
       <section
         className="py-20 px-5 md:px-8 text-center"
-        style={{ background: "linear-gradient(180deg, #F2E8D9, #FAF6EF)", borderTop: "1px solid rgba(201,168,76,0.1)" }}
+        style={{ background: "linear-gradient(180deg, #F2E8D9, #FAF6EF)", borderTop: "1px solid rgba(139,26,26,0.1)" }}
       >
         <h2
           className="section-title mb-5"

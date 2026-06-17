@@ -93,14 +93,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         {/* Decorative vertical lines */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/4 w-px h-full opacity-10"
-            style={{ background: "linear-gradient(180deg, transparent, #C9A84C, transparent)" }} />
+            style={{ background: "linear-gradient(180deg, transparent, #8B1A1A, transparent)" }} />
           <div className="absolute top-0 right-1/3 w-px h-full opacity-5"
-            style={{ background: "linear-gradient(180deg, transparent, #C9A84C, transparent)" }} />
+            style={{ background: "linear-gradient(180deg, transparent, #8B1A1A, transparent)" }} />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-5 md:px-8 pt-28 pb-20 w-full">
           <div className="max-w-2xl">
-            <p className="section-label animate-fade-in-up mb-5" style={{ color: "#C9A84C" }}>
+            <p className="section-label animate-fade-in-up mb-5" style={{ color: "#8B1A1A" }}>
               {d.home.heroSub}
             </p>
             <h1
@@ -125,12 +125,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         {/* Scroll hint */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up animate-delay-800">
           <span className="text-[#FAF6EF]/40 text-xs tracking-[0.2em] uppercase">{d.home.discoverLabel}</span>
-          <div className="w-px h-12 bg-gradient-to-b from-[#C9A84C] to-transparent" />
+          <div className="w-px h-12 bg-gradient-to-b from-[#8B1A1A] to-transparent" />
         </div>
       </section>
 
       {/* ── VALUE STRIP ─────────────────────────────────────── */}
-      <section style={{ background: "#F2E8D9", borderTop: "1px solid rgba(201,168,76,0.15)", borderBottom: "1px solid rgba(201,168,76,0.15)" }} className="py-10">
+      <section style={{ background: "#F2E8D9", borderTop: "1px solid rgba(139,26,26,0.15)", borderBottom: "1px solid rgba(139,26,26,0.15)" }} className="py-10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {[
             { icon: "🏛️", title: d.home.v1Title, sub: d.home.v1Sub },
@@ -162,11 +162,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(26,19,9,0.4) 0%, transparent 60%)" }} />
             </div>
             {/* Corner accents */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b border-r border-[rgba(201,168,76,0.3)] pointer-events-none" />
-            <div className="absolute -top-4 -left-4 w-24 h-24 border-t border-l border-[rgba(201,168,76,0.3)] pointer-events-none" />
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b border-r border-[rgba(139,26,26,0.3)] pointer-events-none" />
+            <div className="absolute -top-4 -left-4 w-24 h-24 border-t border-l border-[rgba(139,26,26,0.3)] pointer-events-none" />
             {/* Badge */}
-            <div className="absolute bottom-6 left-6 bg-white/90 border border-[rgba(201,168,76,0.3)] px-5 py-3 backdrop-blur-sm">
-              <p className="text-[#C9A84C] text-xs tracking-widest uppercase">{d.home.estBadge}</p>
+            <div className="absolute bottom-6 left-6 bg-white/90 border border-[rgba(139,26,26,0.3)] px-5 py-3 backdrop-blur-sm">
+              <p className="text-[#8B1A1A] text-xs tracking-widest uppercase">{d.home.estBadge}</p>
               <p className="text-[#1C1409] text-sm font-semibold mt-0.5" style={{ fontFamily: "var(--font-playfair), serif" }}>{d.home.estBadgeSub}</p>
             </div>
           </div>
@@ -200,7 +200,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredDishes.map((dish) => (
-              <div key={dish.name} className="card-lift group border border-[rgba(201,168,76,0.15)] overflow-hidden flex flex-col"
+              <div key={dish.name} className="card-lift group border border-[rgba(139,26,26,0.15)] overflow-hidden flex flex-col"
                 style={{ background: "#FFFFFF", boxShadow: "0 2px 20px rgba(26,19,9,0.06)" }}>
                 {/* Photo */}
                 <div className="relative h-48 overflow-hidden">
@@ -213,7 +213,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(26,19,9,0.5) 0%, transparent 60%)" }} />
                   {dish.badgeKey && (
-                    <span className="absolute top-3 left-3 bg-[#C9A84C] text-[#1C1409] text-[10px] font-bold tracking-wider uppercase px-2 py-1">
+                    <span className="absolute top-3 left-3 bg-[#8B1A1A] text-white text-[10px] font-bold tracking-wider uppercase px-2 py-1">
                       {d.menu[dish.badgeKey]}
                     </span>
                   )}
@@ -224,7 +224,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     {dish.name}
                   </h3>
                   <p className="text-[#6B5341] text-sm leading-relaxed flex-1">{lang === "fr" ? dish.fr : dish.en}</p>
-                  <div className="text-[#C9A84C] font-semibold text-lg border-t border-[rgba(201,168,76,0.2)] pt-3">{dish.price}</div>
+                  <div className="text-[#8B1A1A] font-semibold text-lg border-t border-[rgba(139,26,26,0.2)] pt-3">{dish.price}</div>
                 </div>
               </div>
             ))}
@@ -237,12 +237,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       </section>
 
       {/* ── AWARDS ───────────────────────────────────────────── */}
-      <section className="py-14 px-5 md:px-8" style={{ background: "rgba(201,168,76,0.05)", borderTop: "1px solid rgba(201,168,76,0.12)", borderBottom: "1px solid rgba(201,168,76,0.12)" }}>
+      <section className="py-14 px-5 md:px-8" style={{ background: "rgba(139,26,26,0.05)", borderTop: "1px solid rgba(139,26,26,0.12)", borderBottom: "1px solid rgba(139,26,26,0.12)" }}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-5">
             {[d.home.a1, d.home.a2, d.home.a3, d.home.a4].map((text, i) => (
               <div key={i} className="flex items-center gap-3 text-sm text-[#6B5341] max-w-xs text-center">
-                <span className="text-xl flex-shrink-0 text-[#C9A84C]">★</span>
+                <span className="text-xl flex-shrink-0 text-[#8B1A1A]">★</span>
                 <span>{text}</span>
               </div>
             ))}
@@ -260,13 +260,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="card-lift p-8 border border-[rgba(201,168,76,0.15)] flex flex-col gap-5"
+              <div key={i} className="card-lift p-8 border border-[rgba(139,26,26,0.15)] flex flex-col gap-5"
                 style={{ background: "#FFFFFF", boxShadow: "0 2px 20px rgba(26,19,9,0.06)" }}>
                 <div className="stars text-sm">{"★".repeat(t.stars)}</div>
                 <p className="text-[#6B5341] text-sm leading-relaxed italic flex-1" style={{ fontFamily: "var(--font-playfair), serif" }}>
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="border-t border-[rgba(201,168,76,0.15)] pt-4">
+                <div className="border-t border-[rgba(139,26,26,0.15)] pt-4">
                   <p className="text-[#1C1409] text-sm font-medium">{t.author}</p>
                   <p className="text-[#9E8068] text-xs mt-0.5">{t.location}</p>
                 </div>
@@ -303,7 +303,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               />
               <div className="absolute inset-0" style={{ background: "rgba(250,246,239,0.08)" }} />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b border-r border-[rgba(201,168,76,0.3)] pointer-events-none" />
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b border-r border-[rgba(139,26,26,0.3)] pointer-events-none" />
           </div>
         </div>
       </section>
@@ -329,7 +329,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "rgba(201,168,76,0.12)" }} />
+                  style={{ background: "rgba(139,26,26,0.12)" }} />
               </div>
             ))}
           </div>
@@ -348,7 +348,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <div className="absolute inset-0 flex items-center justify-center"
           style={{ background: "rgba(26,19,9,0.65)" }}>
           <div className="text-center px-5">
-            <p className="section-label mb-4" style={{ color: "#C9A84C" }}>Dine With Us</p>
+            <p className="section-label mb-4" style={{ color: "#8B1A1A" }}>Dine With Us</p>
             <h2 className="text-[#FAF6EF] text-3xl md:text-5xl font-bold mb-6"
               style={{ fontFamily: "var(--font-playfair), serif" }}>
               {d.home.bannerDay}<br />
@@ -377,9 +377,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   { dayKey: "friday" as const, isClosed: false },
                   { dayKey: "saturday" as const, isClosed: false },
                 ].map(({ dayKey, isClosed }) => (
-                  <tr key={dayKey} style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }} className="last:border-0">
+                  <tr key={dayKey} style={{ borderBottom: "1px solid rgba(139,26,26,0.12)" }} className="last:border-0">
                     <td className="py-3 text-[#6B5341] w-36">{d.home[dayKey]}</td>
-                    <td className={`py-3 font-medium ${isClosed ? "text-[#9E8068]" : "text-[#C9A84C]"}`}>
+                    <td className={`py-3 font-medium ${isClosed ? "text-[#9E8068]" : "text-[#8B1A1A]"}`}>
                       {isClosed ? d.home.closed : d.home.hours}
                     </td>
                   </tr>
@@ -416,7 +416,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
       {/* ── FINAL CTA ────────────────────────────────────────── */}
       <section className="py-28 px-5 md:px-8 text-center"
-        style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 70%), #FAF6EF", borderTop: "1px solid rgba(201,168,76,0.1)" }}>
+        style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(139,26,26,0.06) 0%, transparent 70%), #FAF6EF", borderTop: "1px solid rgba(139,26,26,0.1)" }}>
         <div className="max-w-xl mx-auto">
           <p className="section-label mb-4">{d.home.ctaLabel}</p>
           <h2 className="section-title mb-5" style={{ fontFamily: "var(--font-playfair), serif" }}>
