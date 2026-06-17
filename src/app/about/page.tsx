@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const timeline = [
   { year: "1976", event: "Cabotto's Restaurant opens its doors — a family tradition begins in Ottawa." },
@@ -36,13 +37,17 @@ export default function AboutPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section
-        className="pt-36 pb-24 px-5 md:px-8 text-center relative"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%), linear-gradient(180deg, #1A1309 0%, #0D0A06 100%)",
-        }}
-      >
+      <section className="relative pt-36 pb-24 px-5 md:px-8 text-center overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1800&q=85"
+          alt="Italian restaurant ambiance"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(13,10,6,0.82)" }} />
+        <div className="relative">
         <p className="section-label mb-3">Est. 1976</p>
         <h1
           className="section-title mb-5"
@@ -56,6 +61,7 @@ export default function AboutPage() {
           more than a restaurant. It is a piece of Italy, lovingly crafted in
           the heart of Ottawa.
         </p>
+        </div>
       </section>
 
       {/* ── STORY ────────────────────────────────────────── */}
@@ -96,36 +102,25 @@ export default function AboutPage() {
 
           {/* Visual panel */}
           <div className="relative">
-            <div
-              className="aspect-square max-w-md mx-auto flex items-center justify-center p-12"
-              style={{
-                background: "linear-gradient(135deg, #2A200D 0%, #3D2E14 50%, #1A1309 100%)",
-                border: "1px solid rgba(201,168,76,0.2)",
-              }}
-            >
-              <div className="text-center">
-                <p
-                  className="text-gold text-8xl font-bold leading-none mb-2"
-                  style={{ fontFamily: "var(--font-playfair), serif" }}
-                >
-                  48
+            <div className="relative aspect-square max-w-md mx-auto overflow-hidden border border-gold/20">
+              <Image
+                src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=900&q=85"
+                alt="Italian kitchen craft"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,6,0.85) 0%, transparent 55%)" }} />
+              <div className="absolute bottom-8 left-8 right-8 text-center">
+                <div className="divider-gold-sm mb-4" />
+                <p className="text-cream text-base italic" style={{ fontFamily: "var(--font-playfair), serif" }}>
+                  &ldquo;Voted #1 Best Italian Food in Ottawa&rdquo;
                 </p>
-                <p className="text-cream-muted text-xs tracking-[0.3em] uppercase mb-6">
-                  Years of Excellence
-                </p>
-                <div className="divider-gold-sm" />
-                <p
-                  className="text-cream text-base italic mt-6 leading-relaxed"
-                  style={{ fontFamily: "var(--font-playfair), serif" }}
-                >
-                  &ldquo;Voted #1 Best Italian
-                  <br />Food in Ottawa&rdquo;
-                </p>
-                <p className="text-gold-muted text-xs tracking-widest mt-2 uppercase">— CTV Viewers</p>
+                <p className="text-gold text-xs tracking-widest mt-2 uppercase">— CTV Viewers</p>
               </div>
             </div>
-            <div className="absolute -bottom-5 -right-5 w-20 h-20 border-b border-r border-gold/30" />
-            <div className="absolute -top-5 -left-5 w-20 h-20 border-t border-l border-gold/30" />
+            <div className="absolute -bottom-5 -right-5 w-20 h-20 border-b border-r border-gold/30 pointer-events-none" />
+            <div className="absolute -top-5 -left-5 w-20 h-20 border-t border-l border-gold/30 pointer-events-none" />
           </div>
         </div>
       </section>
@@ -138,28 +133,24 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Visual */}
           <div className="order-2 lg:order-1 relative">
-            <div
-              className="aspect-[3/4] max-w-sm mx-auto flex items-end justify-start p-8"
-              style={{
-                background:
-                  "linear-gradient(160deg, #3D2E14 0%, #2A200D 40%, #1A1309 100%)",
-                border: "1px solid rgba(201,168,76,0.15)",
-              }}
-            >
-              <div>
+            <div className="relative aspect-[3/4] max-w-sm mx-auto overflow-hidden border border-gold/20">
+              <Image
+                src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=800&q=85"
+                alt="Restaurant owner and hospitality"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,6,0.9) 0%, transparent 50%)" }} />
+              <div className="absolute bottom-8 left-8">
                 <div className="divider-gold-sm !mx-0 mb-4" />
-                <p
-                  className="text-cream text-lg font-semibold"
-                  style={{ fontFamily: "var(--font-playfair), serif" }}
-                >
+                <p className="text-cream text-lg font-semibold" style={{ fontFamily: "var(--font-playfair), serif" }}>
                   Vincenzo Pucci
                 </p>
-                <p className="text-gold text-xs tracking-widest uppercase mt-1">
-                  Owner &amp; Host
-                </p>
+                <p className="text-gold text-xs tracking-widest uppercase mt-1">Owner &amp; Host</p>
               </div>
             </div>
-            <div className="absolute top-8 right-0 translate-x-1/2 w-16 h-16 border border-gold/20 rotate-45" />
+            <div className="absolute top-8 right-0 translate-x-1/2 w-16 h-16 border border-gold/20 rotate-45 pointer-events-none" />
           </div>
 
           {/* Text */}
