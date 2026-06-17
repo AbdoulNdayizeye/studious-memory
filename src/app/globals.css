@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold:       #C9A84C;
+  --color-gold-light: #E8C96E;
+  --color-gold-dark:  #8B6914;
+  --color-gold-muted: #A07835;
+  --color-dark:       #0D0A06;
+  --color-dark-2:     #1A1309;
+  --color-dark-3:     #2A200D;
+  --color-dark-4:     #3D2E14;
+  --color-cream:      #F5E6C8;
+  --color-cream-muted:#B8A07A;
+  --color-cream-dark: #8B714A;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans:  "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0D0A06;
+  color: #F5E6C8;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Animations ─────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.85; }
+}
+
+.animate-fade-in-up   { animation: fadeInUp 0.8s ease-out both; }
+.animate-delay-100    { animation-delay: 0.1s; }
+.animate-delay-200    { animation-delay: 0.2s; }
+.animate-delay-300    { animation-delay: 0.3s; }
+.animate-delay-400    { animation-delay: 0.4s; }
+.animate-delay-600    { animation-delay: 0.6s; }
+.animate-delay-800    { animation-delay: 0.8s; }
+
+.text-shimmer {
+  background: linear-gradient(90deg, #C9A84C 0%, #E8C96E 40%, #C9A84C 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ── Decorative ──────────────────────────────────── */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #C9A84C 50%, transparent 100%);
+}
+
+.divider-gold-sm {
+  width: 60px;
+  height: 2px;
+  background: #C9A84C;
+  margin: 0 auto;
+}
+
+/* ── Cards ───────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(201, 168, 76, 0.18);
+}
+
+/* ── Button base ─────────────────────────────────── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: #C9A84C;
+  color: #0D0A06;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #C9A84C;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.btn-gold:hover {
+  background: #E8C96E;
+  border-color: #E8C96E;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: #C9A84C;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #C9A84C;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.btn-outline:hover {
+  background: rgba(201, 168, 76, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ── Section helpers ──────────────────────────────── */
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  font-family: "Inter", sans-serif;
+}
+
+.section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #F5E6C8;
+  line-height: 1.2;
+}
+
+.hero-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #F5E6C8;
+}
+
+/* ── Menu item ────────────────────────────────────── */
+.menu-item {
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 1.25rem 0;
+  transition: background 0.2s;
+}
+.menu-item:hover {
+  background: rgba(201, 168, 76, 0.04);
+}
+.menu-item:last-child { border-bottom: none; }
+
+/* ── Nav link ─────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B8A07A;
+  transition: color 0.2s;
+  padding: 4px 0;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #C9A84C;
+  transition: width 0.3s ease;
+}
+.nav-link:hover,
+.nav-link.active { color: #C9A84C; }
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* ── Form ─────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(42, 32, 13, 0.6);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  color: #F5E6C8;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.form-input::placeholder { color: #8B714A; }
+.form-input:focus { border-color: #C9A84C; }
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B8A07A;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Star rating ──────────────────────────────────── */
+.stars { color: #C9A84C; letter-spacing: 2px; }
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0D0A06; }
+::-webkit-scrollbar-thumb { background: #3D2E14; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
