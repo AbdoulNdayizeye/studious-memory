@@ -154,13 +154,13 @@ body {
 }
 .menu-item:last-child { border-bottom: none; }
 
-/* ── Nav link ─────────────────────────────────────── */
+/* ── Nav link (on dark burgundy header) ───────────── */
 .nav-link {
   position: relative;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6B5341;
+  color: rgba(242, 232, 217, 0.8);
   transition: color 0.2s;
   padding: 4px 0;
 }
@@ -171,11 +171,11 @@ body {
   left: 0;
   width: 0;
   height: 1px;
-  background: #6B1212;
+  background: #FAF6EF;
   transition: width 0.3s ease;
 }
 .nav-link:hover,
-.nav-link.active { color: #6B1212; }
+.nav-link.active { color: #FAF6EF; }
 .nav-link:hover::after,
 .nav-link.active::after { width: 100%; }
 

@@ -27,7 +27,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="relative pt-36 pb-24 px-5 md:px-8 text-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1800&q=85"
+          src="/images/cabottos-exterior.jpeg"
           alt="Italian restaurant ambiance"
           fill
           priority
@@ -73,7 +73,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           <div className="relative">
             <div className="relative aspect-square max-w-md mx-auto overflow-hidden border border-[rgba(139,26,26,0.2)]">
               <Image
-                src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=900&q=85"
+                src="/images/cabottos-dining-room.jpeg"
                 alt="Italian kitchen craft"
                 fill
                 className="object-cover"
@@ -101,7 +101,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           <div className="order-2 lg:order-1 relative">
             <div className="relative aspect-[3/4] max-w-sm mx-auto overflow-hidden border border-[rgba(139,26,26,0.2)]">
               <Image
-                src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=800&q=85"
+                src="/images/cabottos-exterior.jpeg"
                 alt="Restaurant owner and hospitality"
                 fill
                 className="object-cover object-top"
@@ -142,6 +142,16 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       <section className="py-24 px-5 md:px-8" style={{ background: "#FAF6EF" }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
+            {/* Vintage oval emblem */}
+            <div className="flex justify-center mb-6">
+              <Image
+                src="/images/cabottos-emblem.jpeg"
+                alt="Cabotto's heritage building"
+                width={180}
+                height={145}
+                className="object-contain opacity-90"
+              />
+            </div>
             <p className="section-label mb-3">{d.about.buildingLabel}</p>
             <h2
               className="section-title"

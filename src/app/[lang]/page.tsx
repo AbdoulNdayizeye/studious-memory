@@ -8,15 +8,22 @@ const featuredDishes = [
     en: "Certified Angus strip loin, pounded and stuffed with prosciutto, bocconcini & mushroom in a merlot wine reduction",
     fr: "Contre-filet Angus certifié, attendri et farci de prosciutto, bocconcini et champignons dans une réduction au merlot",
     price: "$48",
-    img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+    img: "/images/cabottos-rack-of-lamb.jpeg",
     badgeKey: "houseSig" as const,
   },
   {
-    name: "Lobster Ravioli",
-    en: "In a brandy & plum tomato cream sauce with piccoli gamberetti and shaved grana padano",
-    fr: "Dans une sauce crémeuse au brandy et tomates prunes avec piccoli gamberetti et grana padano râpé",
-    price: "$28",
-    img: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=80",
+    name: "Bruschetta",
+    en: "Toasted crostini topped with fresh diced tomato, basil, herbs and a drizzle of balsamic",
+    fr: "Crostinis grillés garnis de tomates fraîches, basilic, herbes et vinaigre balsamique",
+    price: "$15",
+    img: "/images/cabottos-bruschetta.jpeg",
+  },
+  {
+    name: "Caprese",
+    en: "Fresh sliced tomato and bocconcini with basil, extra virgin olive oil and cracked black pepper",
+    fr: "Tomates fraîches et bocconcini avec basilic, huile d'olive extra vierge et poivre noir concassé",
+    price: "$18",
+    img: "/images/cabottos-caprese.jpeg",
   },
   {
     name: "Veal Mignonette",
@@ -24,14 +31,6 @@ const featuredDishes = [
     fr: "Veau farci de prosciutto cotto et provolone, jus de veau aux champignons et grains de poivre",
     price: "$39",
     img: "https://images.unsplash.com/photo-1555396273-122f1f3b47cb?w=600&q=80",
-    badgeKey: "houseSig" as const,
-  },
-  {
-    name: "Fettuccine Gamberi",
-    en: "Sea scallop, tiger shrimp and sundried tomato pesto — a house special",
-    fr: "Pétoncle, crevettes tigrées et pesto de tomates séchées — une spécialité maison",
-    price: "$28",
-    img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80",
     badgeKey: "houseSig" as const,
   },
 ];
@@ -58,12 +57,12 @@ const testimonials = [
 ];
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", alt: "Elegant Italian dining room", tall: true },
-  { src: "https://images.unsplash.com/photo-1555396273-122f1f3b47cb?w=800&q=80", alt: "Osso Buco signature dish" },
-  { src: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80", alt: "Classic tiramisù dessert" },
-  { src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", alt: "Heritage building interior", tall: true },
-  { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80", alt: "Italian cuisine spread" },
-  { src: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80", alt: "Fresh pasta preparation" },
+  { src: "/images/cabottos-dining-room.jpeg", alt: "Cabotto's elegant dining room", tall: true },
+  { src: "/images/cabottos-rack-of-lamb.jpeg", alt: "Grilled rack of lamb with rosemary" },
+  { src: "/images/cabottos-bruschetta.jpeg", alt: "Fresh bruschetta on a wooden board" },
+  { src: "/images/cabottos-exterior.jpeg", alt: "Cabotto's heritage building at night", tall: true },
+  { src: "/images/cabottos-caprese.jpeg", alt: "Fresh caprese salad" },
+  { src: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800&q=80", alt: "House pasta dish" },
 ];
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
@@ -75,8 +74,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* ── HERO ──────────────────────────────────────────── */}
       <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85"
-          alt="Elegant Italian dining"
+          src="/images/cabottos-exterior.jpeg"
+          alt="Cabotto's Italian Restaurant Ottawa"
           fill
           priority
           className="object-cover object-center"
@@ -153,8 +152,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=85"
-                alt="Cabotto's restaurant interior"
+                src="/images/cabottos-dining-room.jpeg"
+                alt="Cabotto's elegant dining room interior"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -295,10 +294,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=900&q=85"
-                alt="Private dining at Cabotto's"
+                src="/images/cabottos-dining-room.jpeg"
+                alt="Private dining room at Cabotto's"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0" style={{ background: "rgba(250,246,239,0.08)" }} />
@@ -339,8 +338,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* ── FULL-WIDTH FOOD BANNER ────────────────────────────── */}
       <section className="relative h-[420px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1800&q=85"
-          alt="Italian cuisine spread"
+          src="/images/cabottos-rack-of-lamb.jpeg"
+          alt="Signature dish at Cabotto's"
           fill
           className="object-cover object-center"
           sizes="100vw"

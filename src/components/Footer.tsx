@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Lang } from "@/lib/translations";
 import { getDict } from "@/lib/translations";
 
@@ -14,12 +15,16 @@ export default function Footer({ lang, d }: Props) {
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="lg:col-span-2">
-          <h2
-            className="text-[#8B1A1A] text-3xl font-bold mb-2"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
-          >
-            Cabotto&apos;s
-          </h2>
+          {/* Oval building emblem — sepia medallion */}
+          <div className="mb-4">
+            <Image
+              src="/images/cabottos-emblem.jpeg"
+              alt="Cabotto's heritage building"
+              width={160}
+              height={130}
+              className="object-contain"
+            />
+          </div>
           <p className="text-[#9E8068] text-xs tracking-[0.25em] uppercase mb-5">
             {d.footer.tagline}
           </p>
