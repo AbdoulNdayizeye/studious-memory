@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
+import { getDict } from "@/lib/translations";
 
 type FormData = {
   name: string;
@@ -19,16 +20,6 @@ const timeSlots = [
   "8:00 PM", "8:30 PM",
 ];
 
-const occasions = [
-  "None / Regular Dinner",
-  "Birthday Celebration",
-  "Anniversary",
-  "Business Dinner",
-  "Date Night",
-  "Family Celebration",
-  "Other",
-];
-
 const initialForm: FormData = {
   name: "",
   email: "",
@@ -40,7 +31,9 @@ const initialForm: FormData = {
   requests: "",
 };
 
-export default function ReservationsPage() {
+export default function ReservationsPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = use(params);
+  const d = getDict(lang);
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -65,7 +58,6 @@ export default function ReservationsPage() {
     setSubmitted(false);
   };
 
-  // Get tomorrow's date as minimum
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const minDate = tomorrow.toISOString().split("T")[0];
@@ -76,46 +68,44 @@ export default function ReservationsPage() {
       <section
         className="pt-36 pb-16 px-5 md:px-8 text-center"
         style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%), linear-gradient(180deg, #1A1309 0%, #0D0A06 100%)",
+          background: "radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%), linear-gradient(180deg, #F2E8D9 0%, #FAF6EF 100%)",
         }}
       >
-        <p className="section-label mb-3">Plan Your Evening</p>
+        <p className="section-label mb-3">{d.reservations.heroLabel}</p>
         <h1
           className="section-title mb-5"
           style={{ fontFamily: "var(--font-playfair), serif", fontSize: "clamp(2.5rem,6vw,4rem)" }}
         >
-          Reserve a Table
+          {d.reservations.heroTitle}
         </h1>
         <div className="divider-gold-sm mb-5" />
-        <p className="text-cream-dark max-w-lg mx-auto text-sm leading-relaxed">
-          Reservations are strongly recommended, particularly on weekends.
-          For parties of 8 or more, please call us directly to make arrangements.
+        <p className="text-[#6B5341] max-w-lg mx-auto text-sm leading-relaxed">
+          {d.reservations.heroTagline}
         </p>
       </section>
 
       {/* ── FORM / CONFIRMATION ──────────────────────────── */}
-      <section className="py-16 px-5 md:px-8 min-h-[60vh]">
+      <section className="py-16 px-5 md:px-8 min-h-[60vh]" style={{ background: "#FAF6EF" }}>
         <div className="max-w-2xl mx-auto">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="form-label" htmlFor="name">Full Name *</label>
+                  <label className="form-label" htmlFor="name">{d.reservations.nameLabel} *</label>
                   <input
                     id="name"
                     name="name"
                     type="text"
                     required
-                    placeholder="Jane Smith"
+                    placeholder={d.reservations.namePlaceholder}
                     value={form.name}
                     onChange={handleChange}
                     className="form-input"
                   />
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="guests">Number of Guests *</label>
+                  <label className="form-label" htmlFor="guests">{d.reservations.guestsLabel} *</label>
                   <select
                     id="guests"
                     name="guests"
@@ -126,11 +116,11 @@ export default function ReservationsPage() {
                     style={{ appearance: "none", backgroundImage: "none" }}
                   >
                     {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-                      <option key={n} value={String(n)} style={{ background: "#1A1309" }}>
-                        {n} {n === 1 ? "Guest" : "Guests"}
+                      <option key={n} value={String(n)}>
+                        {n} {n === 1 ? d.reservations.guest : d.reservations.guests}
                       </option>
                     ))}
-                    <option value="8+" style={{ background: "#1A1309" }}>8+ (call us)</option>
+                    <option value="8+">{d.reservations.guestsPlus}</option>
                   </select>
                 </div>
               </div>
@@ -138,26 +128,26 @@ export default function ReservationsPage() {
               {/* Contact */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="form-label" htmlFor="email">Email Address *</label>
+                  <label className="form-label" htmlFor="email">{d.reservations.emailLabel} *</label>
                   <input
                     id="email"
                     name="email"
                     type="email"
                     required
-                    placeholder="jane@email.com"
+                    placeholder={d.reservations.emailPlaceholder}
                     value={form.email}
                     onChange={handleChange}
                     className="form-input"
                   />
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="phone">Phone Number *</label>
+                  <label className="form-label" htmlFor="phone">{d.reservations.phoneLabel} *</label>
                   <input
                     id="phone"
                     name="phone"
                     type="tel"
                     required
-                    placeholder="(613) 555-0000"
+                    placeholder={d.reservations.phonePlaceholder}
                     value={form.phone}
                     onChange={handleChange}
                     className="form-input"
@@ -168,7 +158,7 @@ export default function ReservationsPage() {
               {/* Date & Time */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="form-label" htmlFor="date">Preferred Date *</label>
+                  <label className="form-label" htmlFor="date">{d.reservations.dateLabel} *</label>
                   <input
                     id="date"
                     name="date"
@@ -181,7 +171,7 @@ export default function ReservationsPage() {
                   />
                 </div>
                 <div>
-                  <label className="form-label" htmlFor="time">Preferred Time *</label>
+                  <label className="form-label" htmlFor="time">{d.reservations.timeLabel} *</label>
                   <select
                     id="time"
                     name="time"
@@ -191,9 +181,9 @@ export default function ReservationsPage() {
                     className="form-input"
                     style={{ appearance: "none" }}
                   >
-                    <option value="" style={{ background: "#1A1309" }}>Select a time</option>
+                    <option value="">{d.reservations.timeDefault}</option>
                     {timeSlots.map((t) => (
-                      <option key={t} value={t} style={{ background: "#1A1309" }}>{t}</option>
+                      <option key={t} value={t}>{t}</option>
                     ))}
                   </select>
                 </div>
@@ -201,7 +191,7 @@ export default function ReservationsPage() {
 
               {/* Occasion */}
               <div>
-                <label className="form-label" htmlFor="occasion">Occasion</label>
+                <label className="form-label" htmlFor="occasion">{d.reservations.occasionLabel}</label>
                 <select
                   id="occasion"
                   name="occasion"
@@ -210,21 +200,21 @@ export default function ReservationsPage() {
                   className="form-input"
                   style={{ appearance: "none" }}
                 >
-                  <option value="" style={{ background: "#1A1309" }}>Select an occasion (optional)</option>
-                  {occasions.map((o) => (
-                    <option key={o} value={o} style={{ background: "#1A1309" }}>{o}</option>
+                  <option value="">{d.reservations.occasionDefault}</option>
+                  {d.reservations.occasions.map((o) => (
+                    <option key={o} value={o}>{o}</option>
                   ))}
                 </select>
               </div>
 
               {/* Special requests */}
               <div>
-                <label className="form-label" htmlFor="requests">Special Requests or Dietary Requirements</label>
+                <label className="form-label" htmlFor="requests">{d.reservations.requestsLabel}</label>
                 <textarea
                   id="requests"
                   name="requests"
                   rows={4}
-                  placeholder="Allergies, high chair needed, preferred seating, wine pairing request..."
+                  placeholder={d.reservations.requestsPlaceholder}
                   value={form.requests}
                   onChange={handleChange}
                   className="form-input resize-none"
@@ -232,10 +222,8 @@ export default function ReservationsPage() {
               </div>
 
               {/* Notice */}
-              <p className="text-cream-dark text-xs leading-relaxed">
-                We are open <strong className="text-cream-muted">Tuesday through Saturday, 4:00 PM to 9:00 PM</strong>.
-                We are closed on Sundays and Mondays, and on public holidays. A member of our team
-                will confirm your reservation by phone or email within 24 hours.
+              <p className="text-[#9E8068] text-xs leading-relaxed">
+                {d.reservations.notice}
               </p>
 
               {/* Submit */}
@@ -250,38 +238,39 @@ export default function ReservationsPage() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                     </svg>
-                    Sending Request…
+                    {d.reservations.submitting}
                   </span>
                 ) : (
-                  "Request Reservation"
+                  d.reservations.submitBtn
                 )}
               </button>
             </form>
           ) : (
             /* Confirmation */
             <div
-              className="text-center p-12 border border-gold/25"
-              style={{ background: "linear-gradient(145deg, #2A200D, #1A1309)" }}
+              className="text-center p-12 border border-[rgba(201,168,76,0.25)]"
+              style={{ background: "#F2E8D9" }}
             >
               <div className="text-5xl mb-6">✅</div>
               <h2
-                className="text-cream text-2xl font-bold mb-4"
+                className="text-[#1C1409] text-2xl font-bold mb-4"
                 style={{ fontFamily: "var(--font-playfair), serif" }}
               >
-                Reservation Request Received
+                {d.reservations.confirmTitle}
               </h2>
               <div className="divider-gold-sm mb-6" />
-              <p className="text-cream-dark leading-relaxed mb-2">
-                Thank you, <strong className="text-cream">{form.name}</strong>! Your reservation
-                request for <strong className="text-gold">{form.guests} {Number(form.guests) === 1 ? "guest" : "guests"}</strong>{" "}
-                on <strong className="text-gold">{form.date}</strong> at <strong className="text-gold">{form.time}</strong> has been received.
+              <p className="text-[#6B5341] leading-relaxed mb-2">
+                {d.reservations.confirmText1} <strong className="text-[#1C1409]">{form.name}</strong>! {d.reservations.confirmText2}{" "}
+                <strong className="text-[#C9A84C]">{form.guests} {Number(form.guests) === 1 ? d.reservations.guest : d.reservations.guests}</strong>{" "}
+                {d.reservations.confirmText3} <strong className="text-[#C9A84C]">{form.date}</strong>{" "}
+                {d.reservations.confirmText4} <strong className="text-[#C9A84C]">{form.time}</strong>{" "}
+                {d.reservations.confirmText5}
               </p>
-              <p className="text-cream-dark text-sm mb-8">
-                A member of our team will confirm your booking by phone or email
-                within 24 hours. We look forward to welcoming you.
+              <p className="text-[#9E8068] text-sm mb-8">
+                {d.reservations.confirmNote}
               </p>
               <button onClick={handleReset} className="btn-outline text-sm">
-                Make Another Reservation
+                {d.reservations.anotherBtn}
               </button>
             </div>
           )}
@@ -289,38 +278,26 @@ export default function ReservationsPage() {
       </section>
 
       {/* ── INFO CARDS ───────────────────────────────────── */}
-      <section className="py-16 px-5 md:px-8 border-t border-gold/10">
+      <section className="py-16 px-5 md:px-8" style={{ background: "#F2E8D9", borderTop: "1px solid rgba(201,168,76,0.1)" }}>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
-            {
-              icon: "📞",
-              title: "Prefer to Call?",
-              body: "For immediate assistance, large parties (8+), or special event inquiries, please reach us by phone.",
-            },
-            {
-              icon: "🕔",
-              title: "Hours",
-              body: "Tuesday through Saturday, 4:00 PM to 9:00 PM. Closed Sunday & Monday and on public holidays.",
-            },
-            {
-              icon: "🅿️",
-              title: "Parking",
-              body: "Ample free parking is available on-site. The restaurant is located on Hazeldean Road.",
-            },
+            { icon: "📞", title: d.reservations.info1Title, body: d.reservations.info1Body },
+            { icon: "🕔", title: d.reservations.info2Title, body: d.reservations.info2Body },
+            { icon: "🅿️", title: d.reservations.info3Title, body: d.reservations.info3Body },
           ].map(({ icon, title, body }) => (
             <div
               key={title}
-              className="p-6 border border-gold/15 text-center"
-              style={{ background: "linear-gradient(145deg, #1A1309, #0D0A06)" }}
+              className="p-6 border border-[rgba(201,168,76,0.15)] text-center"
+              style={{ background: "#FFFFFF", boxShadow: "0 2px 20px rgba(26,19,9,0.06)" }}
             >
               <span className="text-3xl block mb-3">{icon}</span>
               <h3
-                className="text-cream font-semibold mb-2"
+                className="text-[#1C1409] font-semibold mb-2"
                 style={{ fontFamily: "var(--font-playfair), serif" }}
               >
                 {title}
               </h3>
-              <p className="text-cream-dark text-sm leading-relaxed">{body}</p>
+              <p className="text-[#6B5341] text-sm leading-relaxed">{body}</p>
             </div>
           ))}
         </div>

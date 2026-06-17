@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold:       #C9A84C;
-  --color-gold-light: #E8C96E;
-  --color-gold-dark:  #8B6914;
-  --color-gold-muted: #A07835;
-  --color-dark:       #0D0A06;
-  --color-dark-2:     #1A1309;
-  --color-dark-3:     #2A200D;
-  --color-dark-4:     #3D2E14;
-  --color-cream:      #F5E6C8;
-  --color-cream-muted:#B8A07A;
-  --color-cream-dark: #8B714A;
+  --color-bg:          #FAF6EF;
+  --color-bg-2:        #F2E8D9;
+  --color-bg-3:        #E8D9C0;
+  --color-bg-dark:     #1C1409;
+  --color-bg-dark-2:   #2A1F0E;
+  --color-text:        #1C1409;
+  --color-text-muted:  #6B5341;
+  --color-text-light:  #9E8068;
+  --color-gold:        #C9A84C;
+  --color-gold-light:  #E8C96E;
+  --color-gold-dark:   #8B6914;
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans:  "Inter", "Helvetica Neue", Arial, sans-serif;
 }
@@ -19,8 +19,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0D0A06;
-  color: #F5E6C8;
+  background-color: #FAF6EF;
+  color: #1C1409;
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -75,7 +75,7 @@ body {
 }
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 64px rgba(201, 168, 76, 0.18);
+  box-shadow: 0 20px 60px rgba(139, 105, 20, 0.12);
 }
 
 /* ── Button base ─────────────────────────────────── */
@@ -85,7 +85,7 @@ body {
   gap: 0.5rem;
   padding: 0.85rem 2rem;
   background: #C9A84C;
-  color: #0D0A06;
+  color: #1C1409;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
@@ -105,12 +105,12 @@ body {
   gap: 0.5rem;
   padding: 0.85rem 2rem;
   background: transparent;
-  color: #C9A84C;
+  color: #8B6914;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: 1px solid #C9A84C;
+  border: 1px solid #8B6914;
   transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 .btn-outline:hover {
@@ -131,7 +131,7 @@ body {
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  color: #F5E6C8;
+  color: #1C1409;
   line-height: 1.2;
 }
 
@@ -140,17 +140,17 @@ body {
   font-size: clamp(2.8rem, 8vw, 6rem);
   font-weight: 700;
   line-height: 1.05;
-  color: #F5E6C8;
+  color: #FAF6EF;
 }
 
 /* ── Menu item ────────────────────────────────────── */
 .menu-item {
-  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
   padding: 1.25rem 0;
   transition: background 0.2s;
 }
 .menu-item:hover {
-  background: rgba(201, 168, 76, 0.04);
+  background: rgba(201, 168, 76, 0.05);
 }
 .menu-item:last-child { border-bottom: none; }
 
@@ -160,7 +160,7 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #B8A07A;
+  color: #6B5341;
   transition: color 0.2s;
   padding: 4px 0;
 }
@@ -171,11 +171,11 @@ body {
   left: 0;
   width: 0;
   height: 1px;
-  background: #C9A84C;
+  background: #8B6914;
   transition: width 0.3s ease;
 }
 .nav-link:hover,
-.nav-link.active { color: #C9A84C; }
+.nav-link.active { color: #8B6914; }
 .nav-link:hover::after,
 .nav-link.active::after { width: 100%; }
 
@@ -183,14 +183,14 @@ body {
 .form-input {
   width: 100%;
   padding: 0.875rem 1rem;
-  background: rgba(42, 32, 13, 0.6);
-  border: 1px solid rgba(201, 168, 76, 0.25);
-  color: #F5E6C8;
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 105, 20, 0.3);
+  color: #1C1409;
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s ease;
 }
-.form-input::placeholder { color: #8B714A; }
+.form-input::placeholder { color: #9E8068; }
 .form-input:focus { border-color: #C9A84C; }
 
 .form-label {
@@ -198,7 +198,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #B8A07A;
+  color: #6B5341;
   margin-bottom: 0.5rem;
 }
 
@@ -207,6 +207,6 @@ body {
 
 /* ── Scrollbar ────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0D0A06; }
-::-webkit-scrollbar-thumb { background: #3D2E14; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #FAF6EF; }
+::-webkit-scrollbar-thumb { background: #E8D9C0; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #C9A84C; }

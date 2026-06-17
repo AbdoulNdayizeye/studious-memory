@@ -1,18 +1,13 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import type { Lang } from "@/lib/translations";
+import { getDict } from "@/lib/translations";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/menu", label: "Menu" },
-  { href: "/about", label: "Our Story" },
-  { href: "/reservations", label: "Reservations" },
-  { href: "/contact", label: "Contact" },
-];
+type Props = { lang: Lang; d: ReturnType<typeof getDict> };
 
-export default function Navigation() {
+export default function Navigation({ lang, d }: Props) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,116 +18,85 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  const navLinks = [
+    { href: `/${lang}`, label: d.nav.home },
+    { href: `/${lang}/menu`, label: d.nav.menu },
+    { href: `/${lang}/about`, label: d.nav.story },
+    { href: `/${lang}/reservations`, label: d.nav.reservations },
+    { href: `/${lang}/contact`, label: d.nav.contact },
+  ];
+
+  // Build the alternate language URL
+  const otherLang = lang === "en" ? "fr" : "en";
+  const otherPath = pathname.replace(`/${lang}`, `/${otherLang}`);
+
+  const isActive = (href: string) => pathname === href || (href !== `/${lang}` && pathname.startsWith(href));
+
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled || menuOpen
-            ? "bg-dark/97 border-b border-gold/10 py-3 backdrop-blur-sm"
-            : "bg-transparent py-5"
-        }`}
-        style={{ backdropFilter: scrolled || menuOpen ? "blur(12px)" : "none" }}
-      >
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
+        scrolled || menuOpen
+          ? "bg-white shadow-sm border-b border-[rgba(201,168,76,0.12)] py-3"
+          : "bg-white/90 backdrop-blur-sm py-5"
+      }`}>
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex flex-col leading-none group">
-            <span
-              className="text-gold font-serif text-xl md:text-2xl font-bold tracking-wide group-hover:text-gold-light transition-colors"
-              style={{ fontFamily: "var(--font-playfair), serif" }}
-            >
+          <Link href={`/${lang}`} className="flex flex-col leading-none group">
+            <span className="text-[#C9A84C] font-bold tracking-wide group-hover:text-[#E8C96E] transition-colors text-xl md:text-2xl" style={{ fontFamily: "var(--font-playfair), serif" }}>
               Cabotto&apos;s
             </span>
-            <span className="text-cream-muted text-[9px] tracking-[0.3em] uppercase mt-0.5">
-              Ristorante · Ottawa
-            </span>
+            <span className="text-[#9E8068] text-[9px] tracking-[0.3em] uppercase mt-0.5">Ristorante · Ottawa</span>
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`nav-link ${pathname === href ? "active" : ""}`}
-              >
+              <Link key={href} href={href}
+                className={`nav-link ${isActive(href) ? "active" : ""}`}>
                 {label}
               </Link>
             ))}
           </nav>
 
-          {/* Right CTAs */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link href="/reservations" className="btn-gold text-xs py-2.5 px-5">
-              Reserve a Table
+          {/* Right */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Link href={otherPath} className="text-[#6B5341] text-xs tracking-widest uppercase border border-[rgba(201,168,76,0.3)] px-3 py-1.5 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all">
+              {d.nav.langLabel}
             </Link>
+            <Link href={`/${lang}/reservations`} className="btn-gold text-xs py-2.5 px-5">{d.nav.reserveBtn}</Link>
           </div>
 
           {/* Mobile hamburger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-            className="lg:hidden flex flex-col gap-1.5 p-2 z-10"
-          >
-            <span
-              className={`block w-6 h-px bg-cream transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-4 h-px bg-gold transition-all duration-300 ${
-                menuOpen ? "opacity-0 w-6" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-px bg-cream transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+          <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" className="lg:hidden flex flex-col gap-1.5 p-2">
+            <span className={`block w-6 h-px bg-[#1C1409] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-4 h-px bg-[#C9A84C] transition-all duration-300 ${menuOpen ? "opacity-0 w-6" : ""}`} />
+            <span className={`block w-6 h-px bg-[#1C1409] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
-      <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        style={{ background: "rgba(13,10,6,0.98)" }}
-      >
+      {/* Mobile overlay */}
+      <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 bg-white ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
         <nav className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map(({ href, label }, i) => (
-            <Link
-              key={href}
-              href={href}
-              className={`text-cream text-2xl font-serif tracking-wide transition-all duration-300 hover:text-gold ${
-                menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              } ${pathname === href ? "text-gold" : ""}`}
-              style={{
-                transitionDelay: menuOpen ? `${i * 60}ms` : "0ms",
-                fontFamily: "var(--font-playfair), serif",
-              }}
-            >
+            <Link key={href} href={href}
+              className={`text-[#1C1409] text-2xl font-bold transition-all duration-300 hover:text-[#C9A84C] ${isActive(href) ? "text-[#C9A84C]" : ""} ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              style={{ fontFamily: "var(--font-playfair), serif", transitionDelay: menuOpen ? `${i * 60}ms` : "0ms" }}>
               {label}
             </Link>
           ))}
-          <Link
-            href="/reservations"
-            className="btn-gold mt-4 text-sm"
-            style={{
-              transitionDelay: menuOpen ? "360ms" : "0ms",
-            }}
-          >
-            Reserve a Table
-          </Link>
+          <div className="flex gap-3 mt-2">
+            <Link href={otherPath} className="text-[#6B5341] text-xs tracking-widest uppercase border border-[rgba(201,168,76,0.3)] px-3 py-2">
+              {d.nav.langFull}
+            </Link>
+            <Link href={`/${lang}/reservations`} className="btn-gold text-sm">{d.nav.reserveBtn}</Link>
+          </div>
         </nav>
       </div>
     </>
