@@ -1,117 +1,98 @@
 import Link from "next/link";
-import Image from "next/image";
-import type { Lang } from "@/lib/translations";
-import { getDict } from "@/lib/translations";
+import { Emblem } from "./Brand";
+import { IconArrow } from "./Icons";
 
-type Props = { lang: Lang; d: ReturnType<typeof getDict> };
+const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
+  {
+    title: "Collections",
+    links: [
+      { label: "Silver Collection", href: "/collections" },
+      { label: "Black Collection", href: "/collections" },
+      { label: "Rose Gold Collection", href: "/collections" },
+      { label: "Titanium Collection", href: "/collections" },
+      { label: "Limited Editions", href: "/collections" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "Warranty", href: "/contact" },
+      { label: "Shipping", href: "/contact" },
+      { label: "Returns", href: "/contact" },
+      { label: "Servicing", href: "/contact" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "The House",
+    links: [
+      { label: "Our Story", href: "/about" },
+      { label: "Craftsmanship", href: "/about" },
+      { label: "The Journal", href: "/journal" },
+      { label: "Boutiques", href: "/contact" },
+      { label: "Careers", href: "/contact" },
+    ],
+  },
+];
 
-export default function Footer({ lang, d }: Props) {
-  const year = new Date().getFullYear();
-  const copyright = d.footer.copyright.replace('{year}', String(year));
+const SOCIALS = ["Instagram", "Pinterest", "YouTube", "LinkedIn"];
 
+export default function Footer() {
   return (
-    <footer style={{ background: "#F2E8D9", borderTop: "1px solid rgba(139,26,26,0.2)" }}>
-      {/* Top section */}
-      <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        {/* Brand */}
-        <div className="lg:col-span-2">
-          {/* Oval building emblem — sepia medallion */}
-          <div className="mb-4">
-            <Image
-              src="/images/cabottos-emblem.jpeg"
-              alt="Cabotto's heritage building"
-              width={160}
-              height={130}
-              className="object-contain"
-            />
+    <footer className="bg-ink border-t border-white/8 relative overflow-hidden">
+      <div className="absolute inset-0 grid-lines opacity-40 pointer-events-none" />
+      <div className="container-lux relative">
+        {/* Top */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 py-20">
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-3">
+              <Emblem id="footer-emblem" className="w-10 h-10" />
+              <span className="font-display text-3xl tracking-[0.3em] text-bone pl-1">SOROSHA</span>
+            </div>
+            <p className="mt-6 max-w-sm text-fog font-light leading-relaxed text-sm">
+              Mechanical timepieces conceived and assembled in Ontario, Canada — built for those who
+              measure life not in hours, but in moments worth keeping.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {SOCIALS.map((s) => (
+                <a key={s} href="#" className="text-[0.7rem] tracking-[0.18em] uppercase text-steel hover:text-gold border border-white/10 hover:border-gold/40 px-4 py-2 transition-colors">
+                  {s}
+                </a>
+              ))}
+            </div>
           </div>
-          <p className="text-[#9E8068] text-xs tracking-[0.25em] uppercase mb-5">
-            {d.footer.tagline}
-          </p>
-          <p className="text-[#6B5341] text-sm leading-relaxed max-w-sm">
-            {d.footer.description}
-          </p>
-          {/* Social */}
-          <div className="flex gap-4 mt-6">
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="w-9 h-9 border border-[rgba(139,26,26,0.4)] flex items-center justify-center text-[#8B1A1A] hover:bg-[#8B1A1A] hover:text-white transition-all duration-200"
-            >
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-              </svg>
-            </a>
-            <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="w-9 h-9 border border-[rgba(139,26,26,0.4)] flex items-center justify-center text-[#8B1A1A] hover:bg-[#8B1A1A] hover:text-white transition-all duration-200"
-            >
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </a>
+
+          {COLUMNS.map((col) => (
+            <div key={col.title} className="lg:col-span-2">
+              <h4 className="eyebrow mb-5">{col.title}</h4>
+              <ul className="space-y-3">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="text-fog/80 hover:text-bone text-sm transition-colors">{l.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div className="lg:col-span-2">
+            <h4 className="eyebrow mb-5">The Circle</h4>
+            <p className="text-fog/80 text-sm mb-4">Private releases, before anyone else.</p>
+            <form className="flex border border-white/12 focus-within:border-gold/50 transition-colors">
+              <input type="email" placeholder="Email" aria-label="Email" className="bg-transparent flex-1 min-w-0 px-3 py-3 text-sm text-bone outline-none placeholder:text-smoke" />
+              <button type="submit" aria-label="Subscribe" className="px-3 text-gold hover:bg-gold hover:text-ink transition-colors"><IconArrow className="w-4 h-4" /></button>
+            </form>
           </div>
         </div>
 
-        {/* Quick links */}
-        <div>
-          <h3 className="text-[#1C1409] text-xs tracking-[0.2em] uppercase font-semibold mb-5">
-            {d.footer.quickLinksTitle}
-          </h3>
-          <ul className="space-y-3">
-            {[
-              { href: `/${lang}`, label: d.footer.links.home },
-              { href: `/${lang}/menu`, label: d.footer.links.menu },
-              { href: `/${lang}/about`, label: d.footer.links.story },
-              { href: `/${lang}/reservations`, label: d.footer.links.reservations },
-              { href: `/${lang}/contact`, label: d.footer.links.contact },
-            ].map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className="text-[#6B5341] text-sm hover:text-[#8B1A1A] transition-colors"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Hours & info */}
-        <div>
-          <h3 className="text-[#1C1409] text-xs tracking-[0.2em] uppercase font-semibold mb-5">
-            {d.footer.infoTitle}
-          </h3>
-          <ul className="space-y-2 text-sm text-[#6B5341] mb-5">
-            <li className="flex justify-between gap-4">
-              <span>{d.footer.sunMon}</span>
-              <span className="text-[#9E8068]">{d.footer.closedText}</span>
-            </li>
-            <li className="flex justify-between gap-4">
-              <span>{d.footer.tueSat}</span>
-              <span className="text-[#8B1A1A] font-medium">{d.footer.hoursTime}</span>
-            </li>
-          </ul>
-          <p className="text-[#6B5341] text-sm leading-relaxed whitespace-pre-line">
-            {d.footer.addressText}
-          </p>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div style={{ borderTop: "1px solid rgba(139,26,26,0.15)" }} className="py-5 px-5 md:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-[#9E8068]">
-          <p>{copyright}</p>
-          <p className="flex items-center gap-1">
-            <span className="text-[#8B1A1A]">★</span>
-            {d.footer.award}
-          </p>
+        {/* Bottom */}
+        <div className="border-t border-white/8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-smoke text-xs tracking-wide">© {new Date().getFullYear()} SOROSHA Watch Company · Ontario, Canada. All rights reserved.</p>
+          <div className="flex items-center gap-6 text-xs text-smoke">
+            <Link href="/contact" className="hover:text-gold transition-colors">Privacy</Link>
+            <Link href="/contact" className="hover:text-gold transition-colors">Terms</Link>
+            <Link href="/contact" className="hover:text-gold transition-colors">Accessibility</Link>
+          </div>
         </div>
       </div>
     </footer>
