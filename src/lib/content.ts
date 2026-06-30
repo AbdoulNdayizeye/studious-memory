@@ -18,24 +18,30 @@ export type WatchTheme = {
   accentLight: string;
   /** Soft glow behind the piece */
   glow: string;
+  /** Real product photograph (white background keyed out) */
+  image: string;
 };
 
 export const THEMES: Record<string, WatchTheme> = {
   silver: {
     caseMetal: "#D7DAE0", caseMetalDark: "#9CA0A8", dial: "#1A1C20", dialDark: "#0C0D0F",
-    movement: "#B9BDC6", accent: "#EDEFF3", accentLight: "#FFFFFF", glow: "rgba(201,204,210,0.45)",
+    movement: "#B9BDC6", accent: "#EDEFF3", accentLight: "#FFFFFF", glow: "rgba(201,204,210,0.42)",
+    image: "/images/watch-silver.png",
   },
   onyx: {
     caseMetal: "#3A3C40", caseMetalDark: "#161718", dial: "#0B0B0C", dialDark: "#050505",
     movement: "#4A4C52", accent: "#B68D40", accentLight: "#D8B570", glow: "rgba(182,141,64,0.4)",
+    image: "/images/watch-black.png",
   },
   rose: {
     caseMetal: "#E5B98F", caseMetalDark: "#B27A4E", dial: "#1C1410", dialDark: "#0E0A08",
     movement: "#D9A877", accent: "#F0C9A0", accentLight: "#FBE3CB", glow: "rgba(224,170,124,0.42)",
+    image: "/images/watch-rose.png",
   },
-  titanium: {
-    caseMetal: "#A7ACB4", caseMetalDark: "#6E737B", dial: "#15171A", dialDark: "#0A0B0C",
-    movement: "#888D96", accent: "#C9CCD2", accentLight: "#EDEFF3", glow: "rgba(138,141,148,0.4)",
+  gold: {
+    caseMetal: "#E7C871", caseMetalDark: "#B68D40", dial: "#171311", dialDark: "#0B0908",
+    movement: "#D8B570", accent: "#F0D592", accentLight: "#FBEAB8", glow: "rgba(214,181,112,0.45)",
+    image: "/images/watch-gold.png",
   },
 };
 
@@ -130,28 +136,28 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "titanium-vanguard",
-    name: "Vanguard",
-    line: "Titanium Collection",
-    themeKey: "titanium",
-    price: 6400,
-    reference: "SRH-04·VNG",
+    slug: "gold-imperator",
+    name: "Imperator",
+    line: "Gold Collection",
+    themeKey: "gold",
+    price: 8900,
+    reference: "SRH-04·IMP",
     badge: "New",
-    tagline: "Aerospace-grade. Feather-light. Unbreakable resolve.",
+    tagline: "Solid gold. Open heart. Unapologetic presence.",
     description:
-      "Forged from grade-5 titanium, the Vanguard is the athlete of the collection — barely there on the wrist, yet engineered to outlast its owner.",
-    caseSize: "43mm",
+      "The Imperator is SOROSHA at its most commanding — a fully skeletonised calibre framed in radiant 18k yellow gold that turns every entrance into an arrival.",
+    caseSize: "42mm",
     story: [
-      "The Vanguard answers a single question: how light can excellence become?",
-      "Its sandblasted titanium case weighs less than a coin, yet shrugs off impact, salt and time with the indifference of something built to last generations.",
+      "The Imperator was built for those who have nothing left to prove, and everything to express.",
+      "Each case is cast from solid 18k gold and finished entirely by hand, until the metal seems to hold the warmth of the light it catches.",
     ],
     specs: [
       { label: "Movement", value: "SOROSHA Automatic SR-260" },
       { label: "Power Reserve", value: "65 hours" },
-      { label: "Case", value: "Grade-5 Titanium" },
-      { label: "Crystal", value: "Scratch-Resistant Sapphire" },
-      { label: "Water Resistance", value: "200m / 20 ATM" },
-      { label: "Bracelet", value: "Integrated Titanium Links" },
+      { label: "Case", value: "18k Yellow Gold" },
+      { label: "Crystal", value: "Double-Domed Sapphire" },
+      { label: "Water Resistance", value: "100m / 10 ATM" },
+      { label: "Bracelet", value: "Integrated Gold Links" },
     ],
   },
 ];
@@ -173,7 +179,7 @@ export const PILLARS: Pillar[] = [
 export type Category = { key: keyof typeof THEMES; name: string; tag: string; line: string; blurb: string; from: number };
 export const CATEGORIES: Category[] = [
   { key: "silver", name: "Dress Watches", tag: "Refined", line: "Silver Collection", blurb: "For the occasions that ask for nothing less than perfect.", from: 4250 },
-  { key: "titanium", name: "Sport Watches", tag: "Resilient", line: "Titanium Collection", blurb: "Engineered to keep pace with a life lived at full speed.", from: 6400 },
+  { key: "gold", name: "Gold Watches", tag: "Radiant", line: "Gold Collection", blurb: "For those who let their presence speak before they do.", from: 8900 },
   { key: "onyx", name: "Skeleton Collection", tag: "Exposed", line: "Black Collection", blurb: "The movement, unveiled. Mechanical art you can wear.", from: 5600 },
   { key: "rose", name: "Limited Editions", tag: "Rare", line: "Rose Gold Collection", blurb: "Numbered, coveted, and never produced twice.", from: 7900 },
 ];
@@ -220,7 +226,7 @@ export const GALLERY: { key: keyof typeof THEMES; caption: string; span?: boolea
   { key: "onyx", caption: "Eclipse, after dark", span: true },
   { key: "silver", caption: "The Meridian, unboxed" },
   { key: "rose", caption: "Aurelia · golden hour" },
-  { key: "titanium", caption: "Vanguard at altitude", span: true },
+  { key: "gold", caption: "Imperator in gold", span: true },
   { key: "silver", caption: "Movement, exposed" },
   { key: "onyx", caption: "Hand-finished bevels" },
 ];

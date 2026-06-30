@@ -35,7 +35,7 @@ export default function AboutPage() {
           <Reveal variant="scale" className="flex justify-center">
             <div className="relative w-[min(70vw,420px)] aspect-[3/5]">
               <div className="absolute inset-0 rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, rgba(182,141,64,0.22), transparent 60%)" }} />
-              <Watch theme={THEMES.titanium} id="about-hero" animated className="relative w-full h-full float-soft" />
+              <Watch theme={THEMES.gold} id="about-hero" animated className="relative w-full h-full float-soft" />
             </div>
           </Reveal>
         </div>

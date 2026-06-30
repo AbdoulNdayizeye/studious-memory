@@ -10,7 +10,7 @@ export default function LifestyleQuote() {
       {/* cinematic field */}
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(40,33,18,0.9), #050505 70%)" }} />
       <div className="absolute -right-[10%] top-1/2 -translate-y-1/2 w-[70vw] max-w-[760px] aspect-square opacity-25 blur-[1px] float-soft">
-        <Watch theme={THEMES.rose} id="life-watch" className="w-full h-full spin-slower" />
+        <Watch theme={THEMES.rose} id="life-watch" animated className="w-full h-full float-soft" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
       <div className="absolute inset-0 bg-noise opacity-[0.05] mix-blend-screen" />

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const POSTS: { key: keyof typeof THEMES; tag: string; title: string; excerpt: string; read: string; feature?: boolean }[] = [
   { key: "onyx", tag: "Craft", title: "Anatomy of an Exhibition Caseback", excerpt: "Why we refuse to hide the movement — and what you are really looking at when you turn a SOROSHA over.", read: "6 min", feature: true },
   { key: "rose", tag: "Design", title: "The Case for Rose Gold", excerpt: "A metal that holds light long after the sun has gone. The story of the Aurelia.", read: "4 min" },
-  { key: "titanium", tag: "Engineering", title: "Lighter Than a Coin", excerpt: "How grade-5 titanium changed what a sports watch could be.", read: "5 min" },
+  { key: "gold", tag: "Craft", title: "Casting Light", excerpt: "Three days by hand: how a SOROSHA gold case earns its glow.", read: "5 min" },
   { key: "silver", tag: "Heritage", title: "On Patience", excerpt: "Eleven months, six pairs of hands, one timepiece. A meditation on slow making.", read: "7 min" },
 ];
 

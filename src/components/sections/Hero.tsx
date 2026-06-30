@@ -43,7 +43,7 @@ export default function Hero() {
             {/* slow orbit ring */}
             <div className="absolute inset-[6%] rounded-full border border-gold/10 spin-slower" />
             <div className="absolute inset-[14%] rounded-full border border-white/5" />
-            <Watch theme={THEMES.silver} id="hero-watch" animated className="relative w-full h-full float-soft drop-shadow-[0_40px_80px_rgba(0,0,0,0.7)]" />
+            <Watch theme={THEMES.gold} id="hero-watch" animated priority className="relative w-full h-full float-soft" />
           </div>
         </div>
       </div>
